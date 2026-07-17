@@ -2,9 +2,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -38,18 +35,6 @@ export default function EnquirePage() {
   const [projectSearch, setProjectSearch] = useState('');
 
   useEffect(() => {
-    // Smooth Scroll
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    });
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-
     // Initial animations
     const tl = gsap.timeline();
     tl.from('.enq-hero-content > *', {
@@ -93,7 +78,6 @@ export default function EnquirePage() {
     });
 
     return () => {
-      lenis.destroy();
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
   }, []);
@@ -120,9 +104,7 @@ export default function EnquirePage() {
   };
 
   return (
-    <div ref={scrollContainerRef} className="main-layout-wrapper">
-      <Header />
-
+    <div ref={scrollContainerRef}>
       {/* Hero Section */}
       <section className="enq-hero-section">
         <div className="container">
@@ -497,8 +479,6 @@ export default function EnquirePage() {
           </form>
         </div>
       </section>
-
-      <Footer />
 
       <style jsx>{`
         /* Hero Section */

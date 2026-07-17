@@ -2,9 +2,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { EnquiryModal } from '@/components/EnquiryForms';
@@ -82,18 +79,6 @@ export default function PropertiesPage() {
   const [filteredProperties, setFilteredProperties] = useState(propertiesData);
 
   useEffect(() => {
-    // Smooth Scroll
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    });
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-
     // Initial animations
     gsap.from('.prop-hero-content > *', {
       y: 40,
@@ -159,7 +144,6 @@ export default function PropertiesPage() {
     });
 
     return () => {
-      lenis.destroy();
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
@@ -183,9 +167,7 @@ export default function PropertiesPage() {
   };
 
   return (
-    <div ref={scrollContainerRef} className="main-layout-wrapper">
-      <Header />
-
+    <div ref={scrollContainerRef}>
       {/* Hero Section */}
       <section className="properties-hero-section">
         <div className="container hero-grid">
@@ -426,8 +408,6 @@ export default function PropertiesPage() {
           </button>
         </div>
       </section>
-
-      <Footer />
 
       {/* Enquiry Modal */}
       <EnquiryModal 

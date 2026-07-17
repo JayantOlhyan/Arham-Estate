@@ -2,9 +2,6 @@
 
 import React, { use, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import Lenis from 'lenis';
 import gsap from 'gsap';
 import { EnquiryModal } from '@/components/EnquiryForms';
 
@@ -116,18 +113,6 @@ export default function PropertyDetailPage({ params }: { params: Promise<{ slug:
   const [enquiryProject, setEnquiryProject] = useState<string | null>(null);
 
   useEffect(() => {
-    // Smooth Scroll
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    });
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-
     // Entrance Animation
     gsap.from('.detail-header-left > *', {
       y: 30,
@@ -159,21 +144,17 @@ export default function PropertyDetailPage({ params }: { params: Promise<{ slug:
       ease: 'power3.out',
     });
 
-    return () => {
-      lenis.destroy();
-    };
+    return () => {};
   }, []);
 
   if (!project) {
     return (
       <div className="not-found-wrapper">
-        <Header />
         <div className="container error-box">
           <h2>Property Not Found</h2>
           <p>The requested property could not be loaded. Please return to our listing directory.</p>
           <Link href="/properties" className="btn btn-primary">Back to Properties</Link>
         </div>
-        <Footer />
         <style jsx>{`
           .error-box {
             padding: 15rem 2rem 10rem 2rem;
@@ -194,9 +175,7 @@ export default function PropertyDetailPage({ params }: { params: Promise<{ slug:
   }
 
   return (
-    <div ref={scrollContainerRef} className="main-layout-wrapper">
-      <Header />
-
+    <div ref={scrollContainerRef}>
       {/* Breadcrumb & Header Section */}
       <section className="detail-hero-section">
         <div className="container">
@@ -353,8 +332,6 @@ export default function PropertyDetailPage({ params }: { params: Promise<{ slug:
           </div>
         </div>
       </section>
-
-      <Footer />
 
       {/* Enquiry Modal */}
       <EnquiryModal 

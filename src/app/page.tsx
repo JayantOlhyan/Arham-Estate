@@ -1,67 +1,22 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import Preloader from '@/components/Preloader';
-import Header from '@/components/Header';
+import React, { useState } from 'react';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Philosophy from '@/components/Philosophy';
 import Projects from '@/components/Projects';
 import { AlertsForm, EnquiryModal } from '@/components/EnquiryForms';
-import Footer from '@/components/Footer';
-import Lenis from 'lenis';
 
 export default function Home() {
-  const [showPreloader, setShowPreloader] = useState(true);
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
-
-  // Set up Lenis smooth scrolling
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-    });
-
-    // Connect Lenis to requestAnimationFrame
-    let rafId: number;
-    function raf(time: number) {
-      lenis.raf(time);
-      rafId = requestAnimationFrame(raf);
-    }
-    rafId = requestAnimationFrame(raf);
-
-    // Disable body scroll when preloader is running
-    if (showPreloader) {
-      lenis.stop();
-    } else {
-      lenis.start();
-    }
-
-    return () => {
-      cancelAnimationFrame(rafId);
-      lenis.destroy();
-    };
-  }, [showPreloader]);
 
   return (
     <>
-      {showPreloader && (
-        <Preloader onComplete={() => setShowPreloader(false)} />
-      )}
+      {/* Hero Section */}
+      <Hero />
 
-      <div className={`main-layout-wrapper ${showPreloader ? 'hidden-content' : ''}`}>
-        <Header />
-        
-        <main>
-          {/* Hero Section */}
-          <Hero />
-
-          {/* About Section */}
-          <About />
+      {/* About Section */}
+      <About />
 
           {/* Philosophy & Advisory Section */}
           <Philosophy />
@@ -190,29 +145,13 @@ export default function Home() {
               </div>
             </div>
           </section>
-        </main>
-
-        <Footer />
-
-        {/* Property Enquiry Modal Popup */}
-        <EnquiryModal 
-          projectName={selectedProject} 
-          onClose={() => setSelectedProject(null)} 
-        />
-      </div>
+      {/* Property Enquiry Modal Popup */}
+      <EnquiryModal 
+        projectName={selectedProject} 
+        onClose={() => setSelectedProject(null)} 
+      />
 
       <style jsx>{`
-        .main-layout-wrapper {
-          opacity: 1;
-          transition: opacity 0.5s ease-in-out;
-        }
-
-        .hidden-content {
-          opacity: 0;
-          height: 100vh;
-          overflow: hidden;
-        }
-
         .section-label {
           font-family: var(--font-outfit), sans-serif;
           font-size: 0.9rem;

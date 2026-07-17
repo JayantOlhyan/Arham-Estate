@@ -2,9 +2,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import Lenis from 'lenis';
 import gsap from 'gsap';
 import { EnquiryModal } from '@/components/EnquiryForms';
 
@@ -86,18 +83,6 @@ export default function PropertyFinder() {
   const [hasSearched, setHasSearched] = useState(false);
 
   useEffect(() => {
-    // Smooth Scroll
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    });
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-
     // Entrance timeline
     const tl = gsap.timeline();
     tl.from('.pf-hero-content > *', {
@@ -142,7 +127,6 @@ export default function PropertyFinder() {
     });
 
     return () => {
-      lenis.destroy();
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
   }, []);
@@ -196,9 +180,7 @@ export default function PropertyFinder() {
   };
 
   return (
-    <div className="main-layout-wrapper">
-      <Header />
-
+    <div ref={scrollContainerRef}>
       {/* Hero Section */}
       <section className="finder-hero-section">
         <img src="/images/luxury_living_room.jpg" alt="Luxury Penthouse Living Room" className="finder-hero-bg" />
@@ -502,8 +484,6 @@ export default function PropertyFinder() {
           </div>
         </div>
       </section>
-
-      <Footer />
 
       {/* Enquiry Modal */}
       <EnquiryModal 

@@ -2,9 +2,6 @@
 
 import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -15,18 +12,6 @@ export default function AboutPage() {
   const statsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Smooth Scroll
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    });
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-
     // Initial animations
     gsap.from('.about-hero-content > *', {
       y: 40,
@@ -118,15 +103,12 @@ export default function AboutPage() {
     });
 
     return () => {
-      lenis.destroy();
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
 
   return (
-    <div ref={scrollContainerRef} className="main-layout-wrapper">
-      <Header />
-
+    <div ref={scrollContainerRef}>
       {/* Hero Section */}
       <section className="about-hero-section">
         <div className="container hero-grid">
@@ -332,8 +314,6 @@ export default function AboutPage() {
           </Link>
         </div>
       </section>
-
-      <Footer />
 
       <style jsx>{`
         /* Hero Styling */
