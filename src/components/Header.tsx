@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -31,7 +32,7 @@ export default function Header() {
     <header className={isScrolled ? 'scrolled' : ''}>
       <div className="container header-wrap">
         {/* Brand Logo & Name */}
-        <a href="#" className="logo-link">
+        <Link href="/" className="logo-link">
           <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
             <text x="33" y="63" fontFamily="var(--font-outfit)" fontSize="38" fill="var(--brand-green)" textAnchor="middle">a</text>
             <text x="65" y="63" fontFamily="var(--font-outfit)" fontSize="38" fill="var(--brand-blue)" textAnchor="middle">e</text>
@@ -39,13 +40,13 @@ export default function Header() {
             <path d="M 50 7 A 43 43 0 0 0 50 93" fill="none" stroke="var(--brand-blue)" strokeWidth="5" strokeLinecap="round" />
           </svg>
           <span className="brand-text">ARHAM ESTATE</span>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="desktop-nav">
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
+            <li><Link href="/">Home</Link></li>
+            <li><Link href="/about">About Us</Link></li>
             
             {/* Services Dropdown */}
             <li 
@@ -53,37 +54,23 @@ export default function Header() {
               onMouseEnter={() => setActiveDropdown('services')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <a href="#services" onClick={(e) => { e.preventDefault(); toggleDropdown('services'); }}>
+              <Link href="/services">
                 Services <span className="caret"></span>
-              </a>
+              </Link>
               <ul className={`dropdown-menu ${activeDropdown === 'services' ? 'show' : ''}`}>
-                <li><a href="#services-residential">Residential</a></li>
-                <li><a href="#services-commercial">Commercial</a></li>
-                <li><a href="#services-others">Others (Land, Warehouse)</a></li>
+                <li><Link href="/services#core-advisory">Core Advisory</Link></li>
+                <li><Link href="/services#portfolio-management">Portfolio Management</Link></li>
+                <li><Link href="/services#investment-advisory">Investment Advisory</Link></li>
+                <li><Link href="/services#property-management">Property Management</Link></li>
+                <li><Link href="/services#venture-funds">Venture Funds</Link></li>
+                <li><Link href="/services#commercial-real-estate">Commercial Real Estate</Link></li>
               </ul>
             </li>
 
-            {/* Strategic Advisory Dropdown */}
-            <li 
-              className="dropdown-li"
-              onMouseEnter={() => setActiveDropdown('advisory')}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              <a href="#advisory" onClick={(e) => { e.preventDefault(); toggleDropdown('advisory'); }}>
-                Strategic Advisory <span className="caret"></span>
-              </a>
-              <ul className={`dropdown-menu ${activeDropdown === 'advisory' ? 'show' : ''}`}>
-                <li><a href="#advisory-portfolio">Portfolio Management</a></li>
-                <li><a href="#advisory-venture">Venture Funds</a></li>
-                <li><a href="#advisory-consultancy">Exclusive Consultancy</a></li>
-                <li><a href="#advisory-developers">Developers Services</a></li>
-                <li><a href="#advisory-landlords">Landlord Services</a></li>
-              </ul>
-            </li>
-
-            <li><a href="#finance">Finance</a></li>
-            <li><a href="#blog">Blog</a></li>
-            <li><a href="#contact" className="btn btn-primary nav-contact-btn">Contact Us</a></li>
+            <li><Link href="/properties">Properties</Link></li>
+            <li><Link href="/#philosophy">Insights</Link></li>
+            <li><Link href="/#contact">Contact Us</Link></li>
+            <li><Link href="/#contact" className="btn btn-primary nav-contact-btn">Enquire Now</Link></li>
           </ul>
         </nav>
 
@@ -103,32 +90,13 @@ export default function Header() {
       <div className={`mobile-nav-drawer ${isMenuOpen ? 'open' : ''}`}>
         <nav>
           <ul>
-            <li><a href="#" onClick={() => setIsMenuOpen(false)}>Home</a></li>
-            <li><a href="#about" onClick={() => setIsMenuOpen(false)}>About Us</a></li>
-            
-            <li className="mobile-dropdown">
-              <span onClick={() => toggleDropdown('m-services')}>Services</span>
-              <ul className={`mobile-dropdown-menu ${activeDropdown === 'm-services' ? 'show' : ''}`}>
-                <li><a href="#services-residential" onClick={() => setIsMenuOpen(false)}>Residential</a></li>
-                <li><a href="#services-commercial" onClick={() => setIsMenuOpen(false)}>Commercial</a></li>
-                <li><a href="#services-others" onClick={() => setIsMenuOpen(false)}>Others</a></li>
-              </ul>
-            </li>
-
-            <li className="mobile-dropdown">
-              <span onClick={() => toggleDropdown('m-advisory')}>Strategic Advisory</span>
-              <ul className={`mobile-dropdown-menu ${activeDropdown === 'm-advisory' ? 'show' : ''}`}>
-                <li><a href="#advisory-portfolio" onClick={() => setIsMenuOpen(false)}>Portfolio Management</a></li>
-                <li><a href="#advisory-venture" onClick={() => setIsMenuOpen(false)}>Venture Funds</a></li>
-                <li><a href="#advisory-consultancy" onClick={() => setIsMenuOpen(false)}>Exclusive Consultancy</a></li>
-                <li><a href="#advisory-developers" onClick={() => setIsMenuOpen(false)}>Developers Services</a></li>
-                <li><a href="#advisory-landlords" onClick={() => setIsMenuOpen(false)}>Landlord Services</a></li>
-              </ul>
-            </li>
-
-            <li><a href="#finance" onClick={() => setIsMenuOpen(false)}>Finance</a></li>
-            <li><a href="#blog" onClick={() => setIsMenuOpen(false)}>Blog</a></li>
-            <li><a href="#contact" className="btn btn-primary" onClick={() => setIsMenuOpen(false)}>Contact Us</a></li>
+            <li><Link href="/" onClick={() => setIsMenuOpen(false)}>Home</Link></li>
+            <li><Link href="/about" onClick={() => setIsMenuOpen(false)}>About Us</Link></li>
+            <li><Link href="/services" onClick={() => setIsMenuOpen(false)}>Services</Link></li>
+            <li><Link href="/properties" onClick={() => setIsMenuOpen(false)}>Properties</Link></li>
+            <li><Link href="/#philosophy" onClick={() => setIsMenuOpen(false)}>Insights</Link></li>
+            <li><Link href="/#contact" onClick={() => setIsMenuOpen(false)}>Contact Us</Link></li>
+            <li><Link href="/#contact" className="btn btn-primary" onClick={() => setIsMenuOpen(false)}>Enquire Now</Link></li>
           </ul>
         </nav>
       </div>
