@@ -39,19 +39,26 @@ The application comprises 10 custom pages and dynamic routes:
 
 ## 🖼️ Media & Asset Registry
 
-All high-quality visual renderings are stored in `public/images/`:
+All high-quality visual renderings are stored in `public/images/` and rendered inside the app:
 
-*   `howrah_bridge_sunset.jpg`: Hero banner image representing Kolkata.
-*   `hooghly_bridge_sunset.jpg`: Serene twilight river background for local heritage sections.
-*   `victoria_memorial.jpg`: Twilight view of Victoria Memorial used in CTA cards.
-*   `kolkata_city_map.jpg`: Stylized vector map of Central Kolkata showing connectivity.
-*   `classical_facade.jpg`: Clean classical residential estate exterior for page headers.
-*   `boardroom_interior.jpg`: High-end conference room representing our corporate values.
-*   `luxury_living_room.jpg`: High-end residential penthouse interior backdrop.
-*   `aurus_building.jpg`: Luxury high-rise residential towers for Aurus property detail page.
-*   `jiva_building.jpg`: Waterfront boutique residences for Jiva property detail page.
-*   `panache_building.jpg`: Contemporary IT-corridor high-rise towers for Panache detail page.
-*   `the_102_building.jpg`: Modern curved high-rise tower rendering for The 102 detail page.
+### 🌆 Landmarks & Location Map
+| Howrah Bridge Sunset | Hooghly Bridge Sunset | Victoria Memorial |
+|:---:|:---:|:---:|
+| ![Howrah Bridge Sunset](./public/images/howrah_bridge_sunset.jpg) | ![Hooghly Bridge Sunset](./public/images/hooghly_bridge_sunset.jpg) | ![Victoria Memorial](./public/images/victoria_memorial.jpg) |
+
+| Central Kolkata Map | Classical Head Office Facade |
+|:---:|:---:|
+| ![Kolkata Map](./public/images/kolkata_city_map.jpg) | ![Classical Facade](./public/images/classical_facade.jpg) |
+
+### 🏢 Properties & Architecture
+| Aurus Towers | Jiva Waterfront | Panache New Town | The 102 Rajarhat |
+|:---:|:---:|:---:|:---:|
+| ![Aurus](./public/images/aurus_building.jpg) | ![Jiva](./public/images/jiva_building.jpg) | ![Panache](./public/images/panache_building.jpg) | ![The 102](./public/images/the_102_building.jpg) |
+
+### 🛋️ Luxury Lifestyles & Interiors
+| Luxury Penthouse Living Room | Corporate Boardroom |
+|:---:|:---:|
+| ![Luxury Living Room](./public/images/luxury_living_room.jpg) | ![Boardroom Interior](./public/images/boardroom_interior.jpg) |
 
 ---
 
