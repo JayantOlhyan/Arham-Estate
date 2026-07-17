@@ -544,18 +544,7 @@ export default function Header() {
           visibility: hidden;
           transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1), transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.3s;
           z-index: 100;
-          padding-top: 15px; /* bridges hover gap */
-        }
-
-        /* Pseudo element gap filler */
-        .dropdown-menu::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 16px;
-          background: transparent;
+          padding-top: 16px;
         }
 
         .dropdown-wrapper:hover .dropdown-menu {
@@ -659,13 +648,16 @@ export default function Header() {
         }
 
         .feat-image-wrap {
-          aspect-ratio: 16/9;
-          height: 110px;
-          overflow: hidden;
           width: 100%;
+          padding-top: 56.25%; /* 16:9 Aspect Ratio */
+          position: relative;
+          overflow: hidden;
         }
 
         .feat-image-wrap img {
+          position: absolute;
+          top: 0;
+          left: 0;
           width: 100%;
           height: 100%;
           object-fit: cover;
@@ -717,20 +709,23 @@ export default function Header() {
         }
 
         .header-main-el.transparent-nav .brand-text {
+          background: none;
           color: #ffffff;
           -webkit-text-fill-color: #ffffff;
         }
 
-        .header-main-el.transparent-nav .logo-svg text {
-          fill: #ffffff;
+        .header-main-el.transparent-nav .logo-svg text,
+        .header-main-el.transparent-nav .logo-svg path {
+          fill: #ffffff !important;
+          stroke: #ffffff !important;
         }
 
-        .header-main-el.transparent-nav .logo-svg path {
-          stroke: #ffffff;
+        .header-main-el.transparent-nav .logo-svg path[fill="none"] {
+          fill: none !important;
         }
 
         .header-main-el.transparent-nav .nav-link {
-          color: rgba(255, 255, 255, 0.85);
+          color: #ffffff;
         }
 
         .header-main-el.transparent-nav .nav-link:hover,
@@ -743,7 +738,7 @@ export default function Header() {
         }
 
         .header-main-el.transparent-nav .caret {
-          border-top-color: rgba(255, 255, 255, 0.8);
+          border-top-color: #ffffff;
         }
 
         .header-main-el.transparent-nav .nav-enquire-btn {
@@ -757,6 +752,10 @@ export default function Header() {
           background: #ffffff;
           color: #0F172A;
           border-color: #ffffff;
+        }
+
+        .header-main-el.transparent-nav .hamburger-line {
+          background-color: #ffffff;
         }
 
         /* MOBILE HAMBURGER TOGGLE BUTTON */
@@ -782,10 +781,6 @@ export default function Header() {
           height: 2.2px;
           background-color: var(--text-light);
           transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, background-color 0.3s ease;
-        }
-
-        .header-main-el.transparent-nav .hamburger-line {
-          background-color: #ffffff;
         }
 
         /* Active Hamburger (X formation) */
