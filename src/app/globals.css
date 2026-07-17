@@ -13,9 +13,9 @@
   --bg-light: #FAF9F6;
   --text-light: #0f172a; /* Deep Slate Charcoal */
   --text-dark: #0f172a;
-  --text-muted: #475569; /* Slate Muted Grey */
-  --border-dark: rgba(15, 23, 42, 0.08); /* Clean Subtle Light Border */
-  --border-light: rgba(15, 23, 42, 0.08);
+  --text-muted: #334155; /* Slate Muted Grey (Darkened for contrast) */
+  --border-dark: rgba(15, 23, 42, 0.15); /* Clean Subtle Light Border (Increased opacity) */
+  --border-light: rgba(15, 23, 42, 0.15);
   
   /* Layout Options */
   --header-height: 80px;
@@ -266,4 +266,10 @@ nav ul li a:hover::after {
 .btn-outline:hover {
   background: var(--text-main);
   color: var(--bg-main);
+}
+
+/* Global Focus & Interactive States */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: 2px solid var(--brand-green);
+  outline-offset: 2px;
 }

@@ -76,9 +76,9 @@ export default function Home() {
               <h2 className="section-title">Testimonials</h2>
               
               <div className="testimonials-placeholder-container">
-                {/* Big Media Text Overlay as requested by user */}
-                <div className="media-placeholder-overlay">
-                  [TESTIMONIALS VIDEO CLIPS & CLIENT REVIEWS HERE]
+                {/* Testimonial Image */}
+                <div className="testimonial-image-wrapper">
+                  <img src="/images/hooghly_bridge_sunset.jpg" alt="Client Testimonial" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
                 
                 <div className="testimonials-content-box">
@@ -262,24 +262,17 @@ export default function Home() {
           }
         }
 
-        .media-placeholder-overlay {
-          background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        .testimonial-image-wrapper {
+          background: #e2e8f0;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-family: var(--font-outfit), sans-serif;
-          font-size: 1.2rem;
-          font-weight: 800;
-          letter-spacing: 0.05em;
-          color: rgba(15, 23, 42, 0.15);
-          text-transform: uppercase;
-          text-align: center;
-          padding: 3rem;
           border-right: 1px solid var(--border-main);
+          overflow: hidden;
         }
 
         @media (max-width: 991px) {
-          .media-placeholder-overlay {
+          .testimonial-image-wrapper {
             border-right: none;
             border-bottom: 1px solid var(--border-main);
             aspect-ratio: 16/9;

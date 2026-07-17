@@ -13,12 +13,14 @@ export default function Hero() {
   return (
     <section className="hero-section">
       <div className="hero-video-placeholder">
-        <div className="media-placeholder-text">
-          [ROYALTY-FREE BACKGROUND VIDEO HERE]
-        </div>
+        <img 
+          src="/images/howrah_bridge_sunset.jpg" 
+          alt="Howrah Bridge Sunset Kolkata" 
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+        />
       </div>
       
-      {/* Dark overlay for copy readability */}
+      {/* Light overlay for copy readability (strengthened for contrast) */}
       <div className="hero-overlay"></div>
 
       <div className="container hero-content">
@@ -65,22 +67,8 @@ export default function Hero() {
           display: flex;
           align-items: center;
           justify-content: center;
-          background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+          background: #e2e8f0;
           z-index: 1;
-        }
-
-        .media-placeholder-text {
-          font-family: var(--font-outfit), sans-serif;
-          font-size: 2.2rem;
-          font-weight: 800;
-          color: rgba(15, 23, 42, 0.08);
-          letter-spacing: 0.1em;
-          text-align: center;
-          padding: 2rem;
-          border: 2px dashed rgba(15, 23, 42, 0.06);
-          border-radius: 12px;
-          text-transform: uppercase;
-          pointer-events: none;
         }
 
         .hero-overlay {
@@ -89,8 +77,8 @@ export default function Hero() {
           left: 0;
           width: 100%;
           height: 100%;
-          background: radial-gradient(circle at center, transparent 40%, rgba(250, 249, 246, 0.6) 90%),
-                      linear-gradient(to bottom, rgba(250, 249, 246, 0.1) 0%, rgba(250, 249, 246, 0.95) 100%);
+          background: radial-gradient(circle at center, rgba(250, 249, 246, 0.85) 40%, rgba(250, 249, 246, 0.95) 90%),
+                      linear-gradient(to bottom, rgba(250, 249, 246, 0.3) 0%, rgba(250, 249, 246, 1) 100%);
           z-index: 2;
         }
 

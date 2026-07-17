@@ -174,7 +174,11 @@ export default function Philosophy() {
             <div className="phil-content-area">
               <div className="phil-content-card">
                 <div className="card-media-placeholder">
-                  <span className="media-placeholder-text">[ROYALTY-FREE VIDEOS HERE]</span>
+                  <img 
+                    src="/images/classical_facade.jpg" 
+                    alt="Philosophy Pillar Desktop" 
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                  />
                 </div>
                 <div className="card-info">
                   <span className="pillar-index">Pillar {String(activeStep + 1).padStart(2, '0')}</span>
@@ -195,7 +199,11 @@ export default function Philosophy() {
             {pillars.map((pillar, index) => (
               <div key={pillar.id} className="mobile-phil-card">
                 <div className="card-media-placeholder">
-                  <span className="media-placeholder-text">[ROYALTY-FREE VIDEOS HERE]</span>
+                  <img 
+                    src="/images/luxury_living_room.jpg" 
+                    alt="Philosophy Pillar Mobile" 
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                  />
                 </div>
                 <div className="card-info">
                   <span className="pillar-index">Pillar {String(index + 1).padStart(2, '0')}</span>
@@ -342,21 +350,15 @@ export default function Philosophy() {
 
         .card-media-placeholder {
           aspect-ratio: 16/10;
-          background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+          background: #e2e8f0;
           display: flex;
           align-items: center;
           justify-content: center;
           border-bottom: 1px solid var(--border-dark);
+          overflow: hidden;
         }
 
-        .card-media-placeholder .media-placeholder-text {
-          font-family: var(--font-outfit), sans-serif;
-          font-size: 0.9rem;
-          font-weight: 700;
-          letter-spacing: 0.08em;
-          color: rgba(15, 23, 42, 0.15);
-          text-transform: uppercase;
-        }
+        /* Placeholder text removed */
 
         .card-info {
           padding: 2.5rem;

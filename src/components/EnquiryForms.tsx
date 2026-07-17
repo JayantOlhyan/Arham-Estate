@@ -405,8 +405,8 @@ export function EnquiryModal({ projectName, onClose }: EnquiryModalProps) {
 
         .form-control {
           padding: 0.9rem 1.25rem;
-          background: rgba(15, 23, 42, 0.01);
-          border: 1px solid rgba(15, 23, 42, 0.08);
+          background: #ffffff;
+          border: 1px solid rgba(15, 23, 42, 0.2);
           border-radius: 50px;
           color: var(--text-main);
           font-family: var(--font-inter), sans-serif;
@@ -417,7 +417,8 @@ export function EnquiryModal({ projectName, onClose }: EnquiryModalProps) {
 
         .form-control:focus {
           border-color: var(--brand-green);
-          background: rgba(15, 23, 42, 0.03);
+          background: #ffffff;
+          box-shadow: 0 0 0 3px rgba(89, 165, 44, 0.15);
         }
 
         .disabled-input {

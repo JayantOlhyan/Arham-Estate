@@ -67,7 +67,11 @@ export default function About() {
             <h2 className="about-title">Arham Estate Limited</h2>
             <div className="brand-film-card">
               <div className="brand-film-placeholder">
-                <span className="media-placeholder-text">[BRAND FILM VIDEO PLACEHOLDER HERE]</span>
+                <img 
+                  src="/images/boardroom_interior.jpg" 
+                  alt="Arham Estate Brand Film" 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                />
                 <div className="play-button-overlay">
                   <div className="play-icon"></div>
                 </div>
@@ -175,18 +179,7 @@ export default function About() {
           justify-content: center;
           position: relative;
           cursor: pointer;
-          background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-        }
-
-        .brand-film-placeholder .media-placeholder-text {
-          font-family: var(--font-outfit), sans-serif;
-          font-size: 0.9rem;
-          font-weight: 600;
-          color: rgba(15, 23, 42, 0.15);
-          letter-spacing: 0.05em;
-          text-transform: uppercase;
-          text-align: center;
-          padding: 1rem;
+          background: #e2e8f0;
         }
 
         .play-button-overlay {

@@ -106,7 +106,12 @@ export default function Projects({ onSelectProject }: ProjectsProps) {
             >
               {/* Media placeholder exactly as requested: uppercase big text */}
               <div className="project-image-placeholder">
-                <span className="media-placeholder-text">[{project.title} IMAGE HERE]</span>
+                <img 
+                  src={`/images/${project.id.replace('-', '_')}_building.jpg`} 
+                  alt={project.title} 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)' }} 
+                  className="project-img"
+                />
                 <span className="project-zone-badge">{project.zone}</span>
               </div>
               
@@ -213,7 +218,7 @@ export default function Projects({ onSelectProject }: ProjectsProps) {
 
         .project-image-placeholder {
           aspect-ratio: 16/10;
-          background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+          background: #e2e8f0;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -222,24 +227,11 @@ export default function Projects({ onSelectProject }: ProjectsProps) {
           overflow: hidden;
         }
 
-        .project-card:hover .project-image-placeholder {
-          background: linear-gradient(135deg, #FAF9F6 0%, #f1f5f9 100%);
-        }
-
-        .project-image-placeholder .media-placeholder-text {
-          font-family: var(--font-outfit), sans-serif;
-          font-size: 1rem;
-          font-weight: 700;
-          letter-spacing: 0.1em;
-          color: rgba(15, 23, 42, 0.15);
-          text-transform: uppercase;
-          transition: var(--transition-smooth);
-        }
-
-        .project-card:hover .media-placeholder-text {
-          color: rgba(15, 23, 42, 0.25);
+        .project-card:hover .project-img {
           transform: scale(1.05);
         }
+
+        /* Placeholder text removed */
 
         .project-zone-badge {
           position: absolute;

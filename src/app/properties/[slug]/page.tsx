@@ -840,9 +840,9 @@ export default function PropertyDetailPage({ params }: { params: Promise<{ slug:
         .adv-input, .adv-textarea {
           width: 100%;
           padding: 1rem 1.25rem;
-          border: 1px solid var(--border-main);
-          background: var(--bg-main);
-          border-radius: 10px;
+          border: 1px solid rgba(15, 23, 42, 0.2);
+          background: #ffffff;
+          border-radius: 8px;
           font-family: var(--font-inter), sans-serif;
           font-size: 0.95rem;
           color: var(--text-main);
@@ -853,6 +853,7 @@ export default function PropertyDetailPage({ params }: { params: Promise<{ slug:
         .adv-input:focus, .adv-textarea:focus {
           border-color: var(--brand-green);
           background: #ffffff;
+          box-shadow: 0 0 0 3px rgba(89, 165, 44, 0.15);
         }
 
         .adv-submit-btn {
