@@ -451,16 +451,17 @@ export default function AboutPage() {
 
         .philosophy-card {
           padding: 2.5rem;
-          background: var(--bg-card);
-          border: 1px solid var(--border-main);
+          background: #ffffff;
+          border: 1px solid rgba(15, 23, 42, 0.25);
           border-radius: 20px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
           transition: var(--transition-smooth);
         }
 
         .philosophy-card:hover {
           transform: translateY(-5px);
-          border-color: rgba(89, 165, 44, 0.3);
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+          border-color: var(--brand-green);
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
         }
 
         .phi-card-icon {
