@@ -68,9 +68,11 @@ export default function Header() {
             </li>
 
             <li><Link href="/properties">Properties</Link></li>
-            <li><Link href="/#philosophy">Insights</Link></li>
-            <li><Link href="/#contact">Contact Us</Link></li>
-            <li><Link href="/#contact" className="btn btn-primary nav-contact-btn">Enquire Now</Link></li>
+            <li><Link href="/property-finder">Property Finder</Link></li>
+            <li><Link href="/insights">Insights</Link></li>
+            <li><Link href="/careers">Careers</Link></li>
+            <li><Link href="/contact">Contact Us</Link></li>
+            <li><Link href="/enquire" className="btn btn-primary nav-contact-btn">Enquire Now</Link></li>
           </ul>
         </nav>
 
@@ -94,9 +96,11 @@ export default function Header() {
             <li><Link href="/about" onClick={() => setIsMenuOpen(false)}>About Us</Link></li>
             <li><Link href="/services" onClick={() => setIsMenuOpen(false)}>Services</Link></li>
             <li><Link href="/properties" onClick={() => setIsMenuOpen(false)}>Properties</Link></li>
-            <li><Link href="/#philosophy" onClick={() => setIsMenuOpen(false)}>Insights</Link></li>
-            <li><Link href="/#contact" onClick={() => setIsMenuOpen(false)}>Contact Us</Link></li>
-            <li><Link href="/#contact" className="btn btn-primary" onClick={() => setIsMenuOpen(false)}>Enquire Now</Link></li>
+            <li><Link href="/property-finder" onClick={() => setIsMenuOpen(false)}>Property Finder</Link></li>
+            <li><Link href="/insights" onClick={() => setIsMenuOpen(false)}>Insights</Link></li>
+            <li><Link href="/careers" onClick={() => setIsMenuOpen(false)}>Careers</Link></li>
+            <li><Link href="/contact" onClick={() => setIsMenuOpen(false)}>Contact Us</Link></li>
+            <li><Link href="/enquire" className="btn btn-primary" onClick={() => setIsMenuOpen(false)}>Enquire Now</Link></li>
           </ul>
         </nav>
       </div>
