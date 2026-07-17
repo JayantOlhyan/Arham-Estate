@@ -87,31 +87,32 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Quick Links */}
-          <div className="footer-links-column">
-            <h4>Quick Links</h4>
-            <ul>
-              <li><Link href="/">Home</Link></li>
-              <li><Link href="/about">About Us</Link></li>
-              <li><Link href="/services">Services</Link></li>
-              <li><Link href="/properties">Properties</Link></li>
-              <li><Link href="/property-finder">Property Finder</Link></li>
-              <li><Link href="/insights">Insights</Link></li>
-              <li><Link href="/contact">Contact Us</Link></li>
-            </ul>
-          </div>
+          {/* Column 2 & 3 Combined: Links */}
+          <div className="footer-double-links">
+            <div className="footer-links-column">
+              <h4>Quick Links</h4>
+              <ul>
+                <li><Link href="/">Home</Link></li>
+                <li><Link href="/about">About Us</Link></li>
+                <li><Link href="/services">Services</Link></li>
+                <li><Link href="/properties">Properties</Link></li>
+                <li><Link href="/property-finder">Property Finder</Link></li>
+                <li><Link href="/insights">Insights</Link></li>
+                <li><Link href="/contact">Contact Us</Link></li>
+              </ul>
+            </div>
 
-          {/* Column 3: Our Services */}
-          <div className="footer-links-column">
-            <h4>Our Services</h4>
-            <ul>
-              <li><Link href="/services#core-advisory">Core Advisory</Link></li>
-              <li><Link href="/services#portfolio-management">Portfolio Management</Link></li>
-              <li><Link href="/services#investment-advisory">Investment Advisory</Link></li>
-              <li><Link href="/services#property-management">Property Management</Link></li>
-              <li><Link href="/services#venture-funds">Venture Funds</Link></li>
-              <li><Link href="/services#commercial-real-estate">Commercial Real Estate</Link></li>
-            </ul>
+            <div className="footer-links-column">
+              <h4>Our Services</h4>
+              <ul>
+                <li><Link href="/services#core-advisory">Core Advisory</Link></li>
+                <li><Link href="/services#portfolio-management">Portfolio Management</Link></li>
+                <li><Link href="/services#investment-advisory">Investment Advisory</Link></li>
+                <li><Link href="/services#property-management">Property Management</Link></li>
+                <li><Link href="/services#venture-funds">Venture Funds</Link></li>
+                <li><Link href="/services#commercial-real-estate">Commercial Real Estate</Link></li>
+              </ul>
+            </div>
           </div>
 
           {/* Column 4: Contact Us Details */}
@@ -198,30 +199,23 @@ export default function Footer() {
 
         .footer-top-grid {
           display: grid;
-          grid-template-columns: 1.5fr 1fr 1fr 1.3fr 1.2fr;
+          grid-template-columns: repeat(4, 1fr);
           gap: 3rem;
           position: relative;
           z-index: 2;
           margin-bottom: 5rem;
         }
 
-        @media (max-width: 1200px) {
-          .footer-top-grid {
-            grid-template-columns: 1.5fr 1fr 1fr 1.3fr;
-          }
-          .footer-subscribe-column {
-            grid-column: 1 / -1;
-            max-width: 400px;
-          }
+        .footer-double-links {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1.5rem;
         }
 
-        @media (max-width: 991px) {
+        @media (max-width: 1200px) {
           .footer-top-grid {
             grid-template-columns: repeat(2, 1fr);
             gap: 3rem;
-          }
-          .footer-subscribe-column {
-            grid-column: auto;
           }
         }
 
@@ -229,6 +223,10 @@ export default function Footer() {
           .footer-top-grid {
             grid-template-columns: 1fr;
             gap: 2.5rem;
+          }
+          .footer-double-links {
+            grid-template-columns: 1fr;
+            gap: 2rem;
           }
         }
 
