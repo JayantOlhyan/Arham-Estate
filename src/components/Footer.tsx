@@ -68,12 +68,7 @@ export default function Footer() {
           {/* Column 1: Brand Logo & Desc */}
           <div className="footer-brand-block">
             <div className="footer-logo">
-              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <text x="33" y="63" fontFamily="var(--font-outfit)" fontSize="38" fill="var(--brand-green)" textAnchor="middle">a</text>
-                <text x="65" y="63" fontFamily="var(--font-outfit)" fontSize="38" fill="var(--brand-blue)" textAnchor="middle">e</text>
-                <path d="M 50 93 A 43 43 0 0 0 50 7" fill="none" stroke="var(--brand-green)" strokeWidth="5" strokeLinecap="round" />
-                <path d="M 50 7 A 43 43 0 0 0 50 93" fill="none" stroke="var(--brand-blue)" strokeWidth="5" strokeLinecap="round" />
-              </svg>
+              <img src="/images/logo.png" alt="Arham Estate Logo" className="footer-logo-img" />
               <span className="brand-text">ARHAM ESTATE</span>
             </div>
             <p className="footer-brand-desc">
@@ -237,9 +232,15 @@ export default function Footer() {
           margin-bottom: 1.5rem;
         }
 
-        .footer-logo svg {
-          width: 48px;
-          height: 48px;
+        .footer-logo-img {
+          width: 46px;
+          height: 46px;
+          object-fit: contain;
+          transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .footer-logo:hover .footer-logo-img {
+          transform: scale(1.08);
         }
 
         .brand-text {

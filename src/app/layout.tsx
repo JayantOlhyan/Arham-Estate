@@ -26,7 +26,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${outfit.variable} ${inter.variable}`}>
       <head>
+        <link rel="icon" type="image/png" href="/images/logo.png" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/images/logo.png" />
       </head>
       <body>
         <ClientLayout>{children}</ClientLayout>

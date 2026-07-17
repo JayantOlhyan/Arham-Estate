@@ -152,12 +152,7 @@ export default function Header() {
         {/* LEFT ZONE: BRAND LOGO */}
         <div className="logo-container">
           <Link href="/" className="logo-link" aria-label="Arham Estate Home">
-            <svg className="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <text x="33" y="63" fontFamily="var(--font-outfit)" fontSize="38" fontWeight="700" fill="var(--brand-green)" textAnchor="middle">a</text>
-              <text x="65" y="63" fontFamily="var(--font-outfit)" fontSize="38" fontWeight="700" fill="var(--brand-blue)" textAnchor="middle">e</text>
-              <path d="M 50 93 A 43 43 0 0 0 50 7" fill="none" stroke="var(--brand-green)" strokeWidth="5" strokeLinecap="round" />
-              <path d="M 50 7 A 43 43 0 0 0 50 93" fill="none" stroke="var(--brand-blue)" strokeWidth="5" strokeLinecap="round" />
-            </svg>
+            <img src="/images/logo.png" alt="Arham Estate Logo" className="brand-logo-img" />
             <span className="brand-text">ARHAM ESTATE</span>
           </Link>
         </div>
@@ -398,19 +393,15 @@ export default function Header() {
           gap: 0.75rem;
         }
 
-        .logo-svg {
-          width: 42px;
-          height: 42px;
-          transition: opacity 0.25s ease;
+        .brand-logo-img {
+          width: 44px;
+          height: 44px;
+          object-fit: contain;
+          transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
         }
 
-        .logo-svg text,
-        .logo-svg path {
-          transition: fill 0.3s ease, stroke 0.3s ease;
-        }
-
-        .logo-link:hover .logo-svg {
-          opacity: 0.85;
+        .logo-link:hover .brand-logo-img {
+          transform: scale(1.08);
         }
 
         .brand-text {
@@ -720,14 +711,8 @@ export default function Header() {
           text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
 
-        .header-main-el.transparent-nav .logo-svg text,
-        .header-main-el.transparent-nav .logo-svg path {
-          fill: #ffffff !important;
-          stroke: #ffffff !important;
-        }
-
-        .header-main-el.transparent-nav .logo-svg path[fill="none"] {
-          fill: none !important;
+        .header-main-el.transparent-nav .brand-logo-img {
+          filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.45));
         }
 
         .header-main-el.transparent-nav .nav-link {
