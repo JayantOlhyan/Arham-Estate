@@ -367,7 +367,7 @@ export default function Header() {
           z-index: 1000;
           background: #FAF9F6;
           border-bottom: 1px solid rgba(15, 23, 42, 0.05);
-          transition: background 0.3s ease, height 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+          transition: background 0.3s ease, height 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease, -webkit-backdrop-filter 0.3s ease;
         }
 
         .header-wrap {
@@ -404,6 +404,11 @@ export default function Header() {
           transition: opacity 0.25s ease;
         }
 
+        .logo-svg text,
+        .logo-svg path {
+          transition: fill 0.3s ease, stroke 0.3s ease;
+        }
+
         .logo-link:hover .logo-svg {
           opacity: 0.85;
         }
@@ -416,7 +421,7 @@ export default function Header() {
           background: linear-gradient(135deg, var(--brand-green), var(--brand-blue));
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-          transition: color 0.3s ease, -webkit-text-fill-color 0.3s ease;
+          transition: color 0.3s ease, -webkit-text-fill-color 0.3s ease, text-shadow 0.3s ease;
         }
 
         /* CENTER ZONE: Navigation links centering */
@@ -709,9 +714,10 @@ export default function Header() {
         }
 
         .header-main-el.transparent-nav .brand-text {
-          background: none;
+          /* Do not remove background gradient, just override the fill color to allow smooth transition */
           color: #ffffff;
           -webkit-text-fill-color: #ffffff;
+          text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
 
         .header-main-el.transparent-nav .logo-svg text,
