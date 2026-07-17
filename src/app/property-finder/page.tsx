@@ -593,10 +593,10 @@ export default function PropertyFinder() {
           gap: 1.25rem;
           align-items: center;
           padding: 1.25rem 1.75rem;
-          background: rgba(255,255,255,0.03);
-          border: 1px solid rgba(255,255,255,0.08);
+          background: rgba(255,255,255,0.08);
+          border: 1px solid rgba(255,255,255,0.25);
           border-radius: 16px;
-          backdrop-filter: blur(8px);
+          backdrop-filter: blur(12px);
         }
 
         .badge-icon {
@@ -605,15 +605,15 @@ export default function PropertyFinder() {
 
         .badge-text h6 {
           font-family: var(--font-outfit), sans-serif;
-          font-size: 1.05rem;
+          font-size: 1.15rem;
           color: #ffffff;
           font-weight: 600;
-          margin-bottom: 0.15rem;
+          margin-bottom: 0.25rem;
         }
 
         .badge-text p {
-          font-size: 0.85rem;
-          color: rgba(255,255,255,0.55);
+          font-size: 0.95rem;
+          color: rgba(255,255,255,0.85);
         }
 
         /* How it works */
