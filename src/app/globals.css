@@ -6,6 +6,16 @@
   --brand-blue: #0baadc;
   --brand-green-rgb: 89, 165, 44;
   --brand-blue-rgb: 11, 170, 220;
+
+  /* Status & Legend Colors */
+  --status-ready: #15803d;
+  --status-ready-bg: rgba(21, 128, 61, 0.1);
+  --status-construction: #b45309;
+  --status-construction-bg: rgba(180, 83, 9, 0.1);
+  --status-launch: #0369a1;
+  --status-launch-bg: rgba(3, 105, 161, 0.1);
+  --status-sold: #64748b;
+  --status-sold-bg: rgba(100, 116, 139, 0.1);
   
   /* Palette & Neutrals */
   --bg-dark: #FAF9F6; /* Premium Alabaster White */
@@ -14,15 +24,33 @@
   --text-light: #0f172a; /* Deep Slate Charcoal */
   --text-dark: #0f172a;
   --text-muted: #334155; /* Slate Muted Grey (Darkened for contrast) */
-  --border-dark: rgba(15, 23, 42, 0.15); /* Clean Subtle Light Border (Increased opacity) */
+  --border-dark: rgba(15, 23, 42, 0.15); /* Clean Subtle Light Border */
   --border-light: rgba(15, 23, 42, 0.15);
+
+  /* Fluid Typography Scale */
+  --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.8125rem);
+  --text-sm: clamp(0.85rem, 0.8rem + 0.25vw, 0.925rem);
+  --text-base: clamp(0.95rem, 0.9rem + 0.25vw, 1.05rem);
+  --text-lg: clamp(1.1rem, 1rem + 0.5vw, 1.25rem);
+  --text-xl: clamp(1.25rem, 1.15rem + 0.6vw, 1.5rem);
+  --text-2xl: clamp(1.5rem, 1.35rem + 0.8vw, 1.85rem);
+  --text-3xl: clamp(1.85rem, 1.6rem + 1.2vw, 2.35rem);
+  --text-4xl: clamp(2.25rem, 1.9rem + 1.8vw, 3rem);
+  --text-5xl: clamp(2.75rem, 2.2rem + 2.5vw, 4rem);
+
+  /* Font Weights */
+  --font-light: 300;
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
   
   /* Layout Options */
   --header-height: 80px;
   --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-fast: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   
-  /* Default Theme Settings (Light Mode Preferred by User) */
+  /* Default Theme Settings */
   --bg-main: var(--bg-dark);
   --bg-card: var(--bg-dark-card);
   --text-main: var(--text-light);
