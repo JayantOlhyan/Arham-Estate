@@ -5,6 +5,7 @@ import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { EnquiryModal } from '@/components/EnquiryForms';
+import PropertyLegend from '@/components/PropertyLegend';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -251,6 +252,22 @@ export default function PropertiesPage() {
               </Link>
             </div>
           </div>
+
+          {/* Interactive Property Status & Verification Legend */}
+          <PropertyLegend
+            activeStatus={filterStatus}
+            onSelectStatus={(status) => {
+              setFilterStatus(status);
+              let result = propertiesData;
+              if (filterLocation !== 'All') {
+                result = result.filter(p => p.zone === filterLocation);
+              }
+              if (status !== 'All') {
+                result = result.filter(p => p.badge === status);
+              }
+              setFilteredProperties(result);
+            }}
+          />
 
           <div className="properties-grid-list">
             {filteredProperties.map((project) => (
