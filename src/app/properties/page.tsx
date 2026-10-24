@@ -152,15 +152,44 @@ export default function PropertiesPage() {
   const handleSearch = () => {
     let result = propertiesData;
 
-    // Filter logic
+    // Location filter
     if (filterLocation !== 'All') {
-      result = result.filter(p => p.zone === filterLocation);
+      result = result.filter(p => p.zone === filterLocation || p.location.includes(filterLocation));
     }
+    // Status filter
     if (filterStatus !== 'All') {
       result = result.filter(p => p.badge === filterStatus);
     }
-    // Type and budget filtering are placeholders in static mockup but can be hooked up if needed
+    // Type filter
+    if (filterType !== 'All') {
+      if (filterType === 'Apartment') {
+        result = result.filter(p => p.desc.toLowerCase().includes('residence') || p.desc.toLowerCase().includes('apartment'));
+      } else if (filterType === 'Boutique') {
+        result = result.filter(p => p.desc.toLowerCase().includes('boutique'));
+      }
+    }
+    // Budget filter
+    if (filterBudget !== 'All') {
+      if (filterBudget === '1') {
+        // Under ₹3 Cr
+        result = result.filter(p => p.price.includes('1.85'));
+      } else if (filterBudget === '2') {
+        // ₹3 Cr - ₹5 Cr
+        result = result.filter(p => p.price.includes('3.21'));
+      } else if (filterBudget === '3') {
+        // ₹5 Cr+
+        result = result.filter(p => p.price.includes('6.50'));
+      }
+    }
     setFilteredProperties(result);
+  };
+
+  const handleResetFilters = () => {
+    setFilterLocation('All');
+    setFilterType('All');
+    setFilterBudget('All');
+    setFilterStatus('All');
+    setFilteredProperties(propertiesData);
   };
 
   const openEnquiry = (title: string) => {
@@ -235,6 +264,14 @@ export default function PropertiesPage() {
           <button className="filter-search-btn" onClick={handleSearch}>
             Search Properties &nbsp;🔍
           </button>
+          <button
+            type="button"
+            className="filter-reset-btn"
+            onClick={handleResetFilters}
+            aria-label="Reset all search filters"
+          >
+            Reset
+          </button>
         </div>
       </div>
 
@@ -245,6 +282,9 @@ export default function PropertiesPage() {
             <div className="header-left">
               <span className="section-label">Featured Properties</span>
               <h2 className="list-section-title">Our handpicked selection</h2>
+              <p className="filter-results-count">
+                Showing {filteredProperties.length} of {propertiesData.length} curated luxury properties
+              </p>
             </div>
             <div className="header-right">
               <Link href="/properties" className="view-all-link">
@@ -606,6 +646,30 @@ export default function PropertiesPage() {
 
         .filter-search-btn:hover {
           background: var(--brand-green);
+        }
+
+        .filter-reset-btn {
+          padding: 1rem 1.75rem;
+          background: transparent;
+          border: 1px solid var(--border-main);
+          border-radius: 50px;
+          color: var(--text-muted);
+          font-family: var(--font-outfit), sans-serif;
+          font-weight: 500;
+          font-size: 0.95rem;
+          cursor: pointer;
+          transition: var(--transition-fast);
+        }
+
+        .filter-reset-btn:hover {
+          background: rgba(15, 23, 42, 0.05);
+          color: var(--text-main);
+        }
+
+        .filter-results-count {
+          font-size: 0.9rem;
+          color: var(--text-muted);
+          margin-top: 0.4rem;
         }
 
         /* Properties List Grid */
