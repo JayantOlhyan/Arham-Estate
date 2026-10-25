@@ -67,17 +67,17 @@ export default function Hero() {
 
         <p className="hero-subtitle">
           Leading real estate developer delivering sustainable Grade-A commercial spaces <br className="hidden-mobile" />
-          and premier residential estates focused on holistic well-being.
+          and premier residential estates designed for elevated living, wellness, and generational longevity.
         </p>
 
         <div className="hero-actions">
-          <a href="#projects" className="btn-hero-primary">
-            <span>Explore Projects</span>
-            <svg viewBox="0 0 20 20" fill="none" className="btn-arrow" xmlns="http://www.w3.org/2000/svg">
+          <a href="/properties" className="btn-hero-primary" aria-label="Explore verified residential and commercial properties">
+            <span>Explore Properties</span>
+            <svg viewBox="0 0 20 20" fill="none" className="btn-arrow" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path d="M4.16666 10H15.8333M15.8333 10L10 4.16669M15.8333 10L10 15.8334" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </a>
-          <a href="#contact" className="btn-hero-outline">
+          <a href="/enquire" className="btn-hero-outline" aria-label="Schedule a private real estate consultation">
             <span>Enquire Now</span>
           </a>
         </div>
