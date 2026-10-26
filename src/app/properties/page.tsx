@@ -23,6 +23,9 @@ const propertiesData = [
     desc: 'Luxury residences with timeless design and world-class amenities.',
     badge: 'READY TO MOVE',
     image: '/images/aurus_building.jpg',
+    reraId: 'WBRERA/P/KOL/2023/000412',
+    possession: 'Immediate Handover',
+    openSpace: '74% Open Sky Decks',
   },
   {
     id: 'jiva',
@@ -37,6 +40,9 @@ const propertiesData = [
     desc: 'Boutique living with privacy, greenery and refined comfort.',
     badge: 'NEW LAUNCH',
     image: '/images/jiva_building.jpg',
+    reraId: 'WBRERA/P/SOU/2024/000188',
+    possession: 'Q3 2027 Handover',
+    openSpace: '82% Water & Greenery',
   },
   {
     id: 'panache',
@@ -51,6 +57,9 @@ const propertiesData = [
     desc: 'Contemporary homes in the heart of Kolkata\'s growth corridor.',
     badge: 'UNDER CONSTRUCTION',
     image: '/images/panache_building.jpg',
+    reraId: 'WBRERA/P/NOR/2023/000294',
+    possession: 'December 2026',
+    openSpace: '68% Landscaped Greens',
   },
   {
     id: 'the-102',
@@ -65,6 +74,9 @@ const propertiesData = [
     desc: 'Iconic address for elevated living and investment.',
     badge: 'UNDER CONSTRUCTION',
     image: '/images/the_102_building.jpg',
+    reraId: 'WBRERA/P/NOR/2023/000305',
+    possession: 'June 2027',
+    openSpace: '70% Open Space',
   },
 ];
 
@@ -328,6 +340,11 @@ export default function PropertiesPage() {
                     <span className="spec-item">{project.specs}</span>
                     <span className="spec-divider">|</span>
                     <span className="spec-item">{project.size}</span>
+                  </div>
+
+                  <div className="card-meta-tags">
+                    <span className="rera-badge">🛡️ {project.reraId}</span>
+                    <span className="possession-badge">⏳ {project.possession}</span>
                   </div>
                   
                   <div className="card-price-row">
@@ -842,6 +859,28 @@ export default function PropertiesPage() {
           color: var(--text-muted);
           margin-bottom: 0.75rem;
           font-weight: 500;
+        }
+
+        .card-meta-tags {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5rem;
+          margin-bottom: 1.25rem;
+        }
+
+        .rera-badge,
+        .possession-badge {
+          font-size: 0.75rem;
+          padding: 0.25rem 0.6rem;
+          border-radius: 6px;
+          background: rgba(15, 23, 42, 0.04);
+          color: var(--text-muted);
+          font-weight: 500;
+        }
+
+        .rera-badge {
+          color: var(--brand-green);
+          background: rgba(89, 165, 44, 0.08);
         }
 
         .spec-divider {
