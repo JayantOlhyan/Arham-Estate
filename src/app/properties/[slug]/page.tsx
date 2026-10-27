@@ -24,6 +24,13 @@ const propertiesDetails = {
       'Indoor temperature-controlled swimming pool, gym, and luxury spa',
       'Advanced 3-tier security infrastructure and automated home systems'
     ],
+    reraId: 'WBRERA/P/KOL/2023/000412',
+    possession: 'Ready to Move (Immediate)',
+    configurations: [
+      { type: '3 BHK Classic Suite', area: '1,890 sq.ft.', facing: 'East (Vaastu Compliant)', status: 'Available' },
+      { type: '4 BHK Grand Residence', area: '2,850 sq.ft.', facing: 'South-East Lake Facing', status: 'Few Units Left' },
+      { type: '5 BHK Presidential Sky Villa', area: '4,200 sq.ft.', facing: 'Panoramic 360° Skyline', status: 'Exclusive Access' },
+    ],
     near: [
       { name: 'Leela Hotel & ITC Royal Bengal', dist: '2 mins away' },
       { name: 'Science City / Milan Mela', dist: '5 mins away' },
@@ -47,6 +54,12 @@ const propertiesDetails = {
       '43% water bodies and lush landscaped gardens inside the gates',
       'Low density boutique design offering high-end privacy',
       'Premium Italian marble flooring and premium bathroom fittings'
+    ],
+    reraId: 'WBRERA/P/SOU/2024/000188',
+    possession: 'Q3 2027 Handover',
+    configurations: [
+      { type: '4 BHK Water Pavilion Villa', area: '3,200 sq.ft.', facing: 'Waterfront Lagoon View', status: 'Available' },
+      { type: '5 BHK Floating Penthouse', area: '4,100 sq.ft.', facing: 'Private Garden & Lagoon', status: 'Priority Booking' },
     ],
     near: [
       { name: 'Alipore Zoo & National Library', dist: '3 mins away' },
@@ -72,6 +85,13 @@ const propertiesDetails = {
       'Landscaped central lawn and open children play parks',
       'Excellent rental yield potential and high capital appreciation'
     ],
+    reraId: 'WBRERA/P/NOR/2023/000294',
+    possession: 'December 2026',
+    configurations: [
+      { type: '2 BHK Urban Executive', area: '1,100 sq.ft.', facing: 'Green Boulevard', status: 'Available' },
+      { type: '3 BHK High-Rise Residence', area: '1,750 sq.ft.', facing: 'Skyline & Club Facing', status: 'Available' },
+      { type: '4 BHK Terrace Duplex', area: '2,800 sq.ft.', facing: 'Panoramic East Sunrise', status: 'Few Left' },
+    ],
     near: [
       { name: 'Sector V Metro Station', dist: '1 min away' },
       { name: 'Technopolis / Salt Lake Bypass', dist: '3 mins away' },
@@ -95,6 +115,13 @@ const propertiesDetails = {
       'Sprawling themed flower gardens and elderly fitness courts',
       'Close proximity to premier international schools & IT parks',
       'High potential for long-term real estate capital growth'
+    ],
+    reraId: 'WBRERA/P/NOR/2023/000305',
+    possession: 'June 2027',
+    configurations: [
+      { type: '2 BHK Compact Luxury', area: '1,000 sq.ft.', facing: 'Theme Gardens View', status: 'Available' },
+      { type: '3 BHK Grande Family Suite', area: '1,850 sq.ft.', facing: 'Eco Park Facing', status: 'Available' },
+      { type: '3 BHK Sky Penthouse', area: '3,200 sq.ft.', facing: 'North-East 270° View', status: 'Priority Booking' },
     ],
     near: [
       { name: 'Eco Park Kolkata', dist: '4 mins away' },
@@ -247,6 +274,35 @@ export default function PropertyDetailPage({ params }: { params: Promise<{ slug:
                 </li>
               ))}
             </ul>
+
+            {/* Unit Configurations & Floor Plan Legend */}
+            <div className="configurations-block">
+              <div className="config-header">
+                <h3 className="key-highlights-title">Available Typologies & Unit Legend</h3>
+                <span className="rera-verified-pill">🛡️ {project.reraId}</span>
+              </div>
+              <p className="config-subtext">
+                Possession: <strong>{project.possession}</strong>. Engineered with zero circulation wastage and optimal cross-ventilation.
+              </p>
+              <div className="configurations-table-wrap">
+                <div className="config-row-header">
+                  <span>Configuration</span>
+                  <span>Carpet Area</span>
+                  <span>Orientation / View</span>
+                  <span>Availability</span>
+                </div>
+                {project.configurations?.map((c, i) => (
+                  <div key={i} className="config-row-item">
+                    <span className="config-type-name">{c.type}</span>
+                    <span className="config-area-val">{c.area}</span>
+                    <span className="config-facing-val">{c.facing}</span>
+                    <span className={`config-status-tag ${c.status === 'Available' ? 'tag-available' : 'tag-limited'}`}>
+                      {c.status}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
 
             <div className="overview-icons-grid">
               <div className="icon-detail-node">
@@ -603,6 +659,116 @@ export default function PropertyDetailPage({ params }: { params: Promise<{ slug:
           font-size: 0.98rem;
           color: var(--text-main);
           line-height: 1.4;
+        }
+
+        /* Configurations Table & Legend */
+        .configurations-block {
+          margin-top: 3rem;
+          padding: 2rem;
+          background: #ffffff;
+          border: 1px solid var(--border-main);
+          border-radius: 16px;
+        }
+
+        .config-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 1rem;
+          margin-bottom: 0.5rem;
+        }
+
+        .rera-verified-pill {
+          font-size: 0.8rem;
+          font-weight: 600;
+          color: var(--brand-green);
+          background: rgba(89, 165, 44, 0.08);
+          border: 1px solid rgba(89, 165, 44, 0.2);
+          padding: 0.35rem 0.8rem;
+          border-radius: 50px;
+        }
+
+        .config-subtext {
+          font-size: 0.88rem;
+          color: var(--text-muted);
+          margin-bottom: 1.5rem;
+        }
+
+        .configurations-table-wrap {
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+        }
+
+        .config-row-header {
+          display: grid;
+          grid-template-columns: 1.5fr 1fr 1.5fr 1fr;
+          gap: 1rem;
+          padding: 0.75rem 1rem;
+          background: rgba(15, 23, 42, 0.03);
+          border-radius: 8px;
+          font-family: var(--font-outfit), sans-serif;
+          font-size: 0.82rem;
+          font-weight: 700;
+          color: var(--text-main);
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
+        }
+
+        .config-row-item {
+          display: grid;
+          grid-template-columns: 1.5fr 1fr 1.5fr 1fr;
+          gap: 1rem;
+          padding: 1rem;
+          background: var(--bg-card);
+          border: 1px solid var(--border-main);
+          border-radius: 10px;
+          align-items: center;
+          font-size: 0.88rem;
+        }
+
+        .config-type-name {
+          font-weight: 600;
+          color: var(--text-main);
+        }
+
+        .config-area-val {
+          color: var(--brand-blue);
+          font-weight: 600;
+        }
+
+        .config-facing-val {
+          color: var(--text-muted);
+        }
+
+        .config-status-tag {
+          font-size: 0.78rem;
+          font-weight: 600;
+          padding: 0.25rem 0.65rem;
+          border-radius: 50px;
+          text-align: center;
+          width: fit-content;
+        }
+
+        .tag-available {
+          background: rgba(21, 128, 61, 0.1);
+          color: #15803d;
+        }
+
+        .tag-limited {
+          background: rgba(180, 83, 9, 0.1);
+          color: #b45309;
+        }
+
+        @media (max-width: 768px) {
+          .config-row-header {
+            display: none;
+          }
+          .config-row-item {
+            grid-template-columns: 1fr;
+            gap: 0.5rem;
+          }
         }
 
         .overview-icons-grid {
