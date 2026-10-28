@@ -147,44 +147,73 @@ export function EnquiryModal({ projectName, onClose }: EnquiryModalProps) {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [query, setQuery] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formError, setFormError] = useState('');
+  const [referenceId, setReferenceId] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
   if (!projectName) return null;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || !email || !phone) return;
+    setFormError('');
 
-    // Simulate submission
+    if (!name.trim()) {
+      setFormError('Please enter your full name.');
+      return;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setFormError('Please enter a valid email address.');
+      return;
+    }
+    const cleanPhone = phone.replace(/\D/g, '');
+    if (cleanPhone.length < 10) {
+      setFormError('Please enter a valid 10-digit phone number.');
+      return;
+    }
+
+    setIsSubmitting(true);
     setTimeout(() => {
+      setIsSubmitting(false);
+      setReferenceId(`ARH-${Math.floor(100000 + Math.random() * 900000)}`);
       setSubmitted(true);
-    }, 400);
+    }, 600);
   };
 
   return (
-    <div className="modal-backdrop">
+    <div className="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
       <div className="modal-content-card">
         {/* Close Button */}
         <button className="modal-close-btn" onClick={onClose} aria-label="Close Modal">
           ✕
         </button>
 
-        <h3 className="modal-title">Enquiry Form</h3>
+        <h3 id="modal-title" className="modal-title">Property Enquiry</h3>
         <p className="modal-subtitle">
-          Interested in <span className="highlight-project">{projectName}</span>? Provide your details below and our advisors will contact you shortly.
+          Interested in <span className="highlight-project">{projectName}</span>? Provide your details below and our Kolkata advisory team will connect with you within 2 business hours.
         </p>
 
         {submitted ? (
-          <div className="modal-success-screen">
-            <div className="modal-success-circle">✓</div>
-            <h4>Thank you!</h4>
-            <p>Your enquiry for {projectName} has been registered successfully. We will get back to you shortly.</p>
+          <div className="modal-success-screen" tabIndex={-1}>
+            <div className="modal-success-circle" aria-hidden="true">✓</div>
+            <h4>Enquiry Confirmed</h4>
+            <div className="reference-ticket-badge">
+              <span>Reference Docket: </span>
+              <strong>{referenceId}</strong>
+            </div>
+            <p>Your interest for {projectName} has been registered with our senior advisor. A confirmation will also be sent to your contact details.</p>
             <button onClick={onClose} className="btn btn-outline" style={{ marginTop: '1.5rem' }}>
               Close Window
             </button>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="modal-form-grid">
+          <form onSubmit={handleSubmit} className="modal-form-grid" noValidate>
+            {formError && (
+              <div className="form-error-banner" role="alert">
+                ⚠️ {formError}
+              </div>
+            )}
             
             {/* Intent Option Segment */}
             <div className="form-group full-width">
@@ -256,8 +285,12 @@ export function EnquiryModal({ projectName, onClose }: EnquiryModalProps) {
               />
             </div>
 
-            <button type="submit" className="btn btn-primary full-width modal-submit-btn">
-              Submit Enquiry
+            <button
+              type="submit"
+              className="btn btn-primary full-width modal-submit-btn"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Registering Enquiry...' : 'Submit Priority Enquiry'}
             </button>
 
           </form>
@@ -434,6 +467,32 @@ export function EnquiryModal({ projectName, onClose }: EnquiryModalProps) {
 
         .modal-submit-btn {
           margin-top: 1rem;
+        }
+
+        .form-error-banner {
+          grid-column: 1 / -1;
+          background: rgba(239, 68, 68, 0.1);
+          border: 1px solid rgba(239, 68, 68, 0.3);
+          color: #b91c1c;
+          padding: 0.75rem 1rem;
+          border-radius: 8px;
+          font-size: 0.88rem;
+          font-weight: 500;
+        }
+
+        .reference-ticket-badge {
+          background: rgba(15, 23, 42, 0.04);
+          border: 1px dashed var(--border-main);
+          padding: 0.5rem 1rem;
+          border-radius: 50px;
+          font-size: 0.85rem;
+          color: var(--text-muted);
+        }
+
+        .reference-ticket-badge strong {
+          color: var(--brand-green);
+          font-family: monospace;
+          font-size: 0.95rem;
         }
 
         /* Success screen styles */
