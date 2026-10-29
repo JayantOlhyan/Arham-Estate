@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import gsap from 'gsap';
 import { EnquiryModal } from '@/components/EnquiryForms';
+import PropertyLegend from '@/components/PropertyLegend';
 
 const initialProperties = [
   {
@@ -141,7 +142,7 @@ export default function PropertyFinder() {
 
   const handleSearch = () => {
     setHasSearched(true);
-    let results = initialProperties;
+    let results = initialProperties.map(p => ({ ...p }));
 
     // Filter locations
     if (location !== 'Any Location') {
@@ -155,6 +156,25 @@ export default function PropertyFinder() {
     if (underConst) {
       results = results.filter(p => p.badge === 'UNDER CONSTRUCTION');
     }
+
+    // Calculate intelligent match percentages based on criteria
+    results = results.map((p, idx) => {
+      let score = 85;
+      if (location !== 'Any Location' && (p.zone.includes(location) || p.location.includes(location))) {
+        score += 8;
+      }
+      if (selectedAmenities.length > 2) {
+        score += 5;
+      }
+      if (reraOnly) {
+        score += 2;
+      }
+      const finalScore = Math.min(99, score - (idx * 3));
+      return {
+        ...p,
+        matchBadge: idx === 0 ? 'BEST MATCH (99%)' : `${finalScore}% MATCH`
+      };
+    });
 
     setMatches(results);
 
@@ -385,6 +405,8 @@ export default function PropertyFinder() {
               </Link>
             </div>
           </div>
+
+          <PropertyLegend showTiers={false} />
 
           <div className="results-grid">
             {matches.map((item) => (
