@@ -115,13 +115,18 @@ export default function AboutPage() {
           <div className="about-hero-content">
             <span className="section-label">Our Story</span>
             <h1 className="about-hero-title">About Arham Estate</h1>
-            <h3 className="about-hero-tagline">Advisory. Integrity. Insight.</h3>
+            <h3 className="about-hero-tagline">Architectural Distinction. Advisory Integrity. Regional Insight.</h3>
             <p className="about-hero-desc">
-              Arham Estate is a Kolkata-based real estate advisory and investment firm delivering bespoke solutions that create enduring value for clients and communities.
+              Arham Estate is an established Kolkata-based real estate advisory, asset curation, and architectural investment firm delivering bespoke living and commercial solutions that generate generational value for discerning clients and communities.
             </p>
-            <a href="#philosophy" className="btn btn-primary hero-btn">
-              Our Approach &nbsp;→
-            </a>
+            <div className="about-actions-row">
+              <a href="#philosophy" className="btn btn-primary hero-btn">
+                Our Approach &nbsp;→
+              </a>
+              <Link href="/properties" className="btn btn-outline hero-btn">
+                View Portfolio
+              </Link>
+            </div>
           </div>
           <div className="about-hero-image-wrap">
             <img src="/images/classical_facade.jpg" alt="Arham Estate Headquarters" className="about-hero-image" />
