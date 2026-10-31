@@ -10,33 +10,39 @@ gsap.registerPlugin(ScrollTrigger);
 const servicesList = [
   {
     num: '01',
-    title: 'Core Advisory',
-    desc: 'Strategic advisory for buying, selling & leasing residential, commercial and land assets across Kolkata.',
+    title: 'Core Real Estate Advisory',
+    desc: 'Strategic advisory for buying, selling & leasing residential, commercial and land assets across premier Kolkata corridors.',
+    deliverable: 'Title verification & valuation',
   },
   {
     num: '02',
-    title: 'Portfolio Management',
-    desc: 'We help you build and manage a strong, diversified real estate portfolio aligned with your investment objectives.',
+    title: 'Portfolio Wealth Management',
+    desc: 'We help high-net-worth investors build and manage strong, diversified real estate portfolios aligned with growth milestones.',
+    deliverable: 'Quarterly yield & capital appreciation reports',
   },
   {
     num: '03',
-    title: 'Investment Advisory',
-    desc: 'Data-driven insights and research to help you make high-yielding real estate investment decisions.',
+    title: 'Investment Due Diligence',
+    desc: 'Data-driven insights, micro-market analytics, and regulatory research to ensure secure and high-yielding capital deployment.',
+    deliverable: 'RERA legal scrutiny & risk assessment',
   },
   {
     num: '04',
-    title: 'Property Management',
-    desc: 'End-to-end management solutions for seamless operations and hassle-free ownership experience.',
+    title: 'Asset & Property Management',
+    desc: 'End-to-end management solutions for seamless tenant onboarding, facility maintenance, and hassle-free ownership.',
+    deliverable: 'Tenant relations & operational oversight',
   },
   {
     num: '05',
-    title: 'Venture Funds',
-    desc: 'Access curated real estate investment opportunities and early-stage assets through our venture funds.',
+    title: 'Institutional Venture Funds',
+    desc: 'Access curated co-investment vehicles and high-growth land acquisition pipelines with institutional-grade governance.',
+    deliverable: 'Structured syndication & exit strategies',
   },
   {
     num: '06',
-    title: 'Commercial Real Estate',
-    desc: 'Advisory for office spaces, retail, industrial and mixed-use commercial investments.',
+    title: 'Commercial & Retail Spaces',
+    desc: 'Turnkey advisory for corporate Grade-A office footprints, high-street retail, and tech hub spaces in Sector V and Rajarhat.',
+    deliverable: 'Floor efficiency & lease term optimization',
   },
 ];
 
@@ -135,6 +141,7 @@ export default function ServicesPage() {
                 <div className="service-card-body">
                   <h4>{service.title}</h4>
                   <p>{service.desc}</p>
+                  <span className="service-deliverable-badge">Key Focus: {service.deliverable}</span>
                 </div>
                 <div className="service-card-footer">
                   <Link href="/#contact" className="service-learn-link">
@@ -411,6 +418,18 @@ export default function ServicesPage() {
           font-size: 0.95rem;
           color: var(--text-muted);
           line-height: 1.6;
+        }
+
+        .service-deliverable-badge {
+          display: inline-block;
+          margin-top: 1rem;
+          font-size: 0.78rem;
+          font-weight: 600;
+          color: var(--brand-blue);
+          background: rgba(11, 170, 220, 0.08);
+          border: 1px solid rgba(11, 170, 220, 0.2);
+          padding: 0.3rem 0.75rem;
+          border-radius: 50px;
         }
 
         .service-card-footer {
