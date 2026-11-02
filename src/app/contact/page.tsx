@@ -252,6 +252,14 @@ export default function ContactPage() {
                 </div>
 
                 <div className="info-detail-node">
+                  <span className="info-node-icon">⏰</span>
+                  <div className="info-node-text">
+                    <h6>Office Hours</h6>
+                    <p>Mon - Sat: 10:00 AM – 7:30 PM IST<br />Private Advisory By Appointment</p>
+                  </div>
+                </div>
+
+                <div className="info-detail-node">
                   <span className="info-node-icon">🕒</span>
                   <div className="info-node-text">
                     <h6>Business Hours</h6>

@@ -9,39 +9,44 @@ gsap.registerPlugin(ScrollTrigger);
 
 const jobsList = [
   {
-    title: 'Real Estate Consultant',
-    department: 'Advisory',
+    title: 'Senior Luxury Real Estate Consultant',
+    department: 'Advisory & Portfolio',
     type: 'Full-time',
-    location: 'Kolkata',
-    experience: '3-5 Years',
-  },
-  {
-    title: 'Investment Analyst',
-    department: 'Investments',
-    type: 'Full-time',
-    location: 'Kolkata',
-    experience: '2-4 Years',
-  },
-  {
-    title: 'Marketing Executive',
-    department: 'Marketing',
-    type: 'Full-time',
-    location: 'Kolkata',
-    experience: '2-3 Years',
-  },
-  {
-    title: 'Graphic Designer',
-    department: 'Marketing',
-    type: 'Full-time',
-    location: 'Kolkata',
-    experience: '2-4 Years',
-  },
-  {
-    title: 'Client Relationship Manager',
-    department: 'Client Relations',
-    type: 'Full-time',
-    location: 'Kolkata',
+    location: 'Kolkata (EM Bypass Office)',
     experience: '3-6 Years',
+    focus: 'Luxury Residential & High-Value Portfolios',
+  },
+  {
+    title: 'Real Estate Investment & Valuation Analyst',
+    department: 'Capital Markets',
+    type: 'Full-time',
+    location: 'Kolkata',
+    experience: '2-5 Years',
+    focus: 'Financial Modeling & Micro-Market Feasibility',
+  },
+  {
+    title: 'Brand & Digital Marketing Strategist',
+    department: 'Marketing & Brand',
+    type: 'Full-time',
+    location: 'Kolkata',
+    experience: '2-4 Years',
+    focus: 'Editorial Content & Growth Campaigns',
+  },
+  {
+    title: 'Architectural & 3D Visual Designer',
+    department: 'Creative & Design',
+    type: 'Full-time',
+    location: 'Kolkata',
+    experience: '2-4 Years',
+    focus: 'CGI Renders, Brand Identity & Collateral',
+  },
+  {
+    title: 'Client Relationship & Wealth Manager',
+    department: 'Private Client Group',
+    type: 'Full-time',
+    location: 'Kolkata',
+    experience: '4-7 Years',
+    focus: 'Family Offices & High-Net-Worth Advisory',
   },
 ];
 
@@ -244,6 +249,8 @@ export default function CareersPage() {
                     <span className="job-label">{job.department}</span>
                     <span className="job-dot">•</span>
                     <span className="job-label">{job.type}</span>
+                    <span className="job-dot">•</span>
+                    <span className="job-focus-text">{job.focus}</span>
                   </div>
                 </div>
                 
