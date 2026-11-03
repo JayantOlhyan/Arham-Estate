@@ -18,8 +18,45 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Arham Estate | Leading Commercial & Residential Developer in Kolkata",
-  description: "Arham Estate is a completely integrated real estate firm offering high-end residential, commercial, and retail properties in Kolkata with a focus on quality, transparency, and wellness.",
+  metadataBase: new URL('https://www.arhamestate.com'),
+  title: {
+    default: 'Arham Estate | Leading Commercial & Luxury Residential Developer in Kolkata',
+    template: '%s | Arham Estate',
+  },
+  description: 'Arham Estate is an integrated real estate advisory firm presenting curated high-end residential, commercial, and boutique properties across Kolkata with complete transparency, RERA compliance, and wellness-centric design.',
+  keywords: [
+    'Arham Estate',
+    'Kolkata real estate',
+    'luxury properties Kolkata',
+    'EM Bypass apartments',
+    'Alipore luxury homes',
+    'New Town commercial spaces',
+    'RERA certified Kolkata',
+  ],
+  authors: [{ name: 'Arham Estate' }],
+  creator: 'Arham Estate',
+  openGraph: {
+    type: 'website',
+    locale: 'en_IN',
+    url: 'https://www.arhamestate.com',
+    siteName: 'Arham Estate',
+    title: 'Arham Estate | Curated Luxury Properties in Kolkata',
+    description: 'Explore premier Grade-A commercial spaces and luxury condominiums in Kolkata with verified RERA documentation.',
+    images: [
+      {
+        url: '/images/howrah_bridge_sunset.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Arham Estate Kolkata Skyline',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Arham Estate | Luxury Real Estate Kolkata',
+    description: 'Curated luxury living and commercial investment advisory in Kolkata.',
+    images: ['/images/howrah_bridge_sunset.jpg'],
+  },
 };
 
 export default function RootLayout({
