@@ -44,9 +44,12 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
   return (
     <>
       {showPreloader && isHome && <Preloader onComplete={() => setShowPreloader(false)} />}
+      <a href="#main-content" className="skip-to-content">
+        Skip to main content
+      </a>
       <div className={`main-layout-wrapper ${showPreloader && isHome ? 'hidden-content' : ''}`}>
         <Header />
-        <main>{children}</main>
+        <main id="main-content" tabIndex={-1}>{children}</main>
         <Footer />
       </div>
     </>
